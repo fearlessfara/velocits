@@ -255,6 +255,33 @@ test('should nest set inside foreach', () => {
   assertEqual(result, '2, 4, 6', 'Should set variable in loop');
 });
 
+// Test Suite 8: Standalone Hash as Literal Text
+console.log('\nStandalone Hash as Literal Text:');
+
+test('hash in HTML tag: <th>#</th> should render as literal text', () => {
+  const engine = new VelocityEngine();
+  const result = engine.render('<th>#</th>', {});
+  assertEqual(result, '<th>#</th>', 'Standalone # in HTML should be literal text');
+});
+
+test('hash before angle bracket: #< some text should render as literal text', () => {
+  const engine = new VelocityEngine();
+  const result = engine.render('#< some text', {});
+  assertEqual(result, '#< some text', 'Hash followed by < should be literal text');
+});
+
+test('hash at end of template: value is # should render as literal text', () => {
+  const engine = new VelocityEngine();
+  const result = engine.render('value is #', {});
+  assertEqual(result, 'value is #', 'Hash at end of template should be literal text');
+});
+
+test('hash followed by space should render as literal text', () => {
+  const engine = new VelocityEngine();
+  const result = engine.render('# followed by space', {});
+  assertEqual(result, '# followed by space', 'Hash followed by space should be literal text');
+});
+
 // Summary
 setTimeout(() => {
   console.log('\n' + '='.repeat(50));
