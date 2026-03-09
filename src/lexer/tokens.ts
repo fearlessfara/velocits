@@ -839,9 +839,9 @@ export const TemplateText = createToken({
                                 (p >= 97 && p <= 122) || // a-z
                                 p === 95 || // _
                                 p === 36; // $
-          // # $ . ( [ { ! = < > + - * / % ? : & | ,
+          // $ . ( [ { ! = < > + - * / % ? : & | ,
           // Only block if it's a code-leading char AND not after a variable reference
-          if (!isAfterVarRef && (p===35||p===36||p===46||p===40||p===91||p===123||p===33||p===61||p===60||p===62||p===43||p===45||p===42||p===47||p===37||p===63||p===58||p===38||p===124||p===44)) {
+          if (!isAfterVarRef && (p===36||p===46||p===40||p===91||p===123||p===33||p===61||p===60||p===62||p===43||p===45||p===42||p===47||p===37||p===63||p===58||p===38||p===124||p===44)) {
             return null;
           }
         }
