@@ -1,6 +1,6 @@
 {
   "name": "@fearlessfara/velocits",
-  "version": "1.2.3",
+  "version": "1.2.1",
   "description": "TypeScript Apache Velocity engine with 1:1 Java compatibility",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
