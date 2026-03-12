@@ -60,5 +60,7 @@ jobs:
       - name: Publish package
         if: steps.semantic_release.outputs.released == 'true'
         env:
+          NODE_AUTH_TOKEN: ''
+          NPM_TOKEN: ''
           NPM_CONFIG_PROVENANCE: true
         run: npm publish --provenance
