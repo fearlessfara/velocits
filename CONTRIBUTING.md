@@ -20,7 +20,7 @@ Thank you for your interest in contributing to Velocits! This document provides 
 
 2. Install dependencies:
    ```bash
-   npm install
+   npm ci
    ```
 
 3. Initialize the git submodule for Apache Velocity reference:
@@ -95,9 +95,9 @@ To add a new test case:
      └── input.json     # Context variables as JSON
    ```
 
-3. Run your specific test:
+3. Run the full Velocity compatibility suite:
    ```bash
-   npm run test:velocity:single your-test-name
+   npm run test:velocity
    ```
 
 #### Test Guidelines
@@ -138,6 +138,16 @@ docs: update README with new examples
 4. Link any related issues
 
 5. Wait for code review and address feedback
+
+## Release Process
+
+- Releases are automated from `main` with semantic-release.
+- Use conventional commits so the next version is computed correctly:
+  - `fix:` produces a patch release
+  - `feat:` produces a minor release
+  - breaking changes produce a major release
+- npm publishing uses GitHub Actions trusted publishing from `.github/workflows/semantic-release.yml`.
+- Do not manually edit package versions just to cut a release unless there is a specific maintenance reason.
 
 ## What to Contribute
 
