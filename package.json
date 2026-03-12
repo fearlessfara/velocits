@@ -23,7 +23,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "npm run build:node && npm run build:browser && npm run build:umd",
+    "build": "npm run clean && npm run build:node && npm run build:browser && npm run build:umd",
     "build:node": "tsc && tsc -p tools/tsconfig.json && tsc -p tests/tsconfig.json",
     "build:browser": "tsc -p tsconfig.browser.json",
     "build:umd": "rollup -c",
@@ -40,7 +40,8 @@
     "example:report": "npm run build && tsx examples/04-report-generator.ts",
     "example:config": "npm run build && tsx examples/05-config-generator.ts",
     "dev": "tsc --watch",
-    "clean": "rm -rf dist dist-browser"
+    "clean": "rm -rf dist dist-browser",
+    "prepack": "npm run build"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.1",
