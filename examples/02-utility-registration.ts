@@ -6,7 +6,7 @@
  * Run with: npm run example:utils
  */
 
-import { VelocityEngine } from '@fearlessfara/velocits';
+import { VelocityEngine } from 'velocits';
 
 // Define utility classes
 class MathUtil {

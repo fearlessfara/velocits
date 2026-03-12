@@ -1,5 +1,5 @@
 {
-  "name": "@fearlessfara/velocits",
+  "name": "velocits",
   "version": "1.2.1",
   "description": "TypeScript Apache Velocity engine with 1:1 Java compatibility",
   "main": "dist/index.js",
@@ -19,6 +19,13 @@
   "files": [
     "dist/**",
     "dist-browser/**",
+    "!dist/**/*.map",
+    "!dist-browser/**/*.map",
+    "!dist/tests/**",
+    "!dist/tools/**",
+    "!dist/src/**",
+    "!dist/examples/**",
+    "!dist-browser/examples/**",
     "README.md",
     "LICENSE"
   ],

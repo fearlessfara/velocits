@@ -6,7 +6,7 @@
  * Run with: npm run example:config
  */
 
-import { VelocityEngine } from '@fearlessfara/velocits';
+import { VelocityEngine } from 'velocits';
 
 console.log('=== Configuration File Generation Examples ===\n');
 
