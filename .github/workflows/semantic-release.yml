@@ -46,7 +46,14 @@ jobs:
         run: npm test
 
       - name: Release
+        id: semantic_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node --input-type=module -e "import { appendFile } from 'node:fs/promises'; import semanticRelease from 'semantic-release'; const result = await semanticRelease(); if (result) { await appendFile(process.env.GITHUB_OUTPUT, 'released=true\n'); await appendFile(process.env.GITHUB_OUTPUT, 'version=' + result.nextRelease.version + '\n'); } else { await appendFile(process.env.GITHUB_OUTPUT, 'released=false\n'); }"
+
+      - name: Publish package
+        if: steps.semantic_release.outputs.released == 'true'
+        env:
           NPM_CONFIG_PROVENANCE: true
-        run: npx semantic-release
+        run: npm publish --provenance
