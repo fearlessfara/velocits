@@ -52,6 +52,11 @@ jobs:
         run: |
           node --input-type=module -e "import { appendFile } from 'node:fs/promises'; import semanticRelease from 'semantic-release'; const result = await semanticRelease(); if (result) { await appendFile(process.env.GITHUB_OUTPUT, 'released=true\n'); await appendFile(process.env.GITHUB_OUTPUT, 'version=' + result.nextRelease.version + '\n'); } else { await appendFile(process.env.GITHUB_OUTPUT, 'released=false\n'); }"
 
+      - name: Debug OIDC claims
+        if: steps.semantic_release.outputs.released == 'true'
+        run: |
+          node --input-type=module -e "const url = process.env.ACTIONS_ID_TOKEN_REQUEST_URL + '&audience=npm:registry.npmjs.org'; const tokenRes = await fetch(url, { headers: { Authorization: 'Bearer ' + process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN } }); if (!tokenRes.ok) { throw new Error('Failed to request OIDC token: ' + tokenRes.status + ' ' + tokenRes.statusText); } const tokenBody = await tokenRes.json(); const parts = String(tokenBody.value || '').split('.'); if (parts.length !== 3) { throw new Error('Unexpected OIDC token format'); } const payload = JSON.parse(Buffer.from(parts[1], 'base64url').toString('utf8')); const pick = ({ repository, repository_owner, ref, sha, job_workflow_ref, workflow_ref, workflow, environment, actor, event_name }) => ({ repository, repository_owner, ref, sha, job_workflow_ref, workflow_ref, workflow, environment, actor, event_name }); console.log('OIDC claims:', JSON.stringify(pick(payload), null, 2));"
+
       - name: Publish package
         if: steps.semantic_release.outputs.released == 'true'
         env:
