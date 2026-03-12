@@ -4,7 +4,7 @@ import { VtlParser } from './parser/vtlParser.js';
 import { cstToAst } from './parser/cstToAst.js';
 import { VtlEvaluator, EvaluationContext } from './runtime/evaluator.js';
 import { ResourceLoader } from './resource/resourceLoader.js';
-import { ParseErrorException, ResourceNotFoundException, MethodInvocationException } from './engine.js';
+import { ParseErrorException, ResourceNotFoundException, MethodInvocationException } from './errors.js';
 import type { SpaceGobblingMode } from './engine.js';
 
 /**
