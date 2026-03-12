@@ -23,7 +23,7 @@ npm run example:config     # Configuration file generation
 These examples follow modern TypeScript best practices:
 
 1. **Direct TypeScript Execution**: Examples run directly using [`tsx`](https://github.com/privatenumber/tsx) - no compilation step needed during development
-2. **Package Imports**: Examples import from the package name (`@fearlessfara/velocits`) rather than relative paths, showing users how they would actually use the library
+2. **Package Imports**: Examples import from the package name (`velocits`) rather than relative paths, showing users how they would actually use the library
 3. **Type Safety**: Full TypeScript type checking with strict mode enabled
 4. **ESM Modules**: Modern ES module syntax throughout
 

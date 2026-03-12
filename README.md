@@ -16,7 +16,7 @@ A TypeScript implementation of the Apache Velocity Template Language (VTL) with 
 ## Installation
 
 ```bash
-npm install @fearlessfara/velocits
+npm install velocits
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ npm install @fearlessfara/velocits
 ### Node.js / ESM
 
 ```typescript
-import { VelocityEngine } from '@fearlessfara/velocits';
+import { VelocityEngine } from 'velocits';
 
 const engine = new VelocityEngine();
 const output = engine.render('Hello, $name!', { name: 'World' });
@@ -34,7 +34,7 @@ console.log(output); // "Hello, World!"
 ### Browser (UMD)
 
 ```html
-<script src="https://unpkg.com/@fearlessfara/velocits"></script>
+<script src="https://unpkg.com/velocits"></script>
 <script>
   const engine = new VelociTS.VelocityEngine();
   const output = engine.render('Hello, $name!', { name: 'World' });
@@ -45,7 +45,7 @@ console.log(output); // "Hello, World!"
 ### String Templates
 
 ```typescript
-import { VelocityEngine } from '@fearlessfara/velocits';
+import { VelocityEngine } from 'velocits';
 
 const engine = new VelocityEngine();
 const template = `
@@ -66,7 +66,7 @@ console.log(output);
 ### File-Based Templates (Node.js only)
 
 ```typescript
-import { VelocityEngine, RuntimeConstants } from '@fearlessfara/velocits';
+import { VelocityEngine, RuntimeConstants } from 'velocits';
 
 // Configure engine with file resource loader
 const engine = new VelocityEngine({
@@ -89,7 +89,7 @@ const output2 = template.merge({ name: 'User' });
 ### Using RuntimeConstants
 
 ```typescript
-import { VelocityEngine, RuntimeConstants } from '@fearlessfara/velocits';
+import { VelocityEngine, RuntimeConstants } from 'velocits';
 
 const engine = new VelocityEngine();
 
@@ -116,7 +116,7 @@ if (engine.resourceExists('template.vtl')) {
 ### Stream Support (Writer/Reader Equivalents)
 
 ```typescript
-import { VelocityEngine } from '@fearlessfara/velocits';
+import { VelocityEngine } from 'velocits';
 
 const engine = new VelocityEngine();
 
@@ -155,7 +155,7 @@ Similar to Java Velocity's `context.put()` functionality, you can register utili
 #### Static Utility Classes
 
 ```typescript
-import { VelocityEngine } from '@fearlessfara/velocits';
+import { VelocityEngine } from 'velocits';
 
 // Define a utility class with static methods
 class MathUtil {
@@ -420,7 +420,7 @@ class Template {
 All Apache Velocity runtime constants are available:
 
 ```typescript
-import { RuntimeConstants } from '@fearlessfara/velocits';
+import { RuntimeConstants } from 'velocits';
 
 RuntimeConstants.FILE_RESOURCE_LOADER_PATH
 RuntimeConstants.FILE_RESOURCE_LOADER_CACHE

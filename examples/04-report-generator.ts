@@ -6,7 +6,7 @@
  * Run with: npm run example:report
  */
 
-import { VelocityEngine } from '@fearlessfara/velocits';
+import { VelocityEngine } from 'velocits';
 
 console.log('=== Report Generation Examples ===\n');
 
